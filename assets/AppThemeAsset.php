@@ -24,7 +24,7 @@ class AppThemeAsset extends AssetBundle
         'theme/css/style.css'
     ];
     public $js = [
-      'theme/js/jquery-2.1.1.js',
+      'theme/js/jquery-2.2.1.min.js',
       'theme/js/bootstrap.min.js',
       'theme/js/plugins/metisMenu/jquery.metisMenu.js',
       'theme/js/plugins/slimscroll/jquery.slimscroll.min.js',
@@ -51,8 +51,13 @@ class AppThemeAsset extends AssetBundle
       'theme/js/plugins/easypiechart/jquery.easypiechart.js',
 
       'theme/js/plugins/sparkline/jquery.sparkline.min.js',
-  
+
+      'js/modal.js',
+
     ];
+    public $jsOptions = array(
+        'position' => \yii\web\View::POS_HEAD
+    );
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',

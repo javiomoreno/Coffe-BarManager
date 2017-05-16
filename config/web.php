@@ -51,6 +51,10 @@ $config = [
                     '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
+        'authManager' =>  [
+                'class' => 'yii\rbac\DbManager',
+                'defaultRoles' => ['guest'],
+        ],
 
     ],
     'params' => $params,

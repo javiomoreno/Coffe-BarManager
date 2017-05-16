@@ -46,13 +46,37 @@ AppThemeAsset::register($this);
                         CBM
                     </div>
                 </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
+                  <?php
+                    if ($this->params['pestanaUsuario'] == 1) {
+                      echo "<li class='active'>";
+                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).' Inicio', ['/admin/index'], ['class'=>'active'] );
+                    }
+                    else{
+                      echo "<li>";
+                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).' Inicio', ['/admin/index'], '' );
+                    }
+                  ?>
                 </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Inventario</span> <span class="fa arrow"></span></a>
+                <?php
+                  if ($this->params['pestanaUsuario'] > 1) {
+                    echo "<li class='active'>";
+                  }
+                  else{
+                    echo "<li>";
+                  }
+                ?>
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Inventario</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="index.html">Productos</a></li>
+                        <?php
+                          if ($this->params['pestanaUsuario'] == 2) {
+                            echo "<li class='active'>";
+                            echo Html::a(Html::tag('i', '', ['class' => 'fa fa-shopping-bag']).' Productos', ['/productos/index'], ['class'=>'active'] );
+                          }
+                          else{
+                            echo "<li>";
+                            echo Html::a(Html::tag('i', '', ['class' => 'fa fa-shopping-bag']).' Productos', ['/productos/index'], '' );
+                          }
+                        ?>
                     </ul>
                 </li>
                 <li>
@@ -99,8 +123,10 @@ AppThemeAsset::register($this);
                       ]) ?>
                   </div>
               </div>
-              <div class="wrapper wrapper-content animated fadeInRight">
-                <?= $content ?>
+              <div class="wrapper wrapper-content animated fadeInRight" style="padding-left: 25px; padding-right: 25px;">
+                <div class="row">
+                  <?= $content ?>
+                </div>
               </div>
               <div class="footer">
                   <div class="pull-right">

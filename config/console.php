@@ -20,6 +20,10 @@ $config = [
                 ],
             ],
         ],
+        'authManager' =>  [
+                'class' => 'yii\rbac\DbManager',
+                'defaultRoles' => ['guest'],
+        ],
         'db' => $db,
     ],
     'params' => $params,
@@ -30,6 +34,7 @@ $config = [
         ],
     ],
     */
+
 ];
 
 if (YII_ENV_DEV) {

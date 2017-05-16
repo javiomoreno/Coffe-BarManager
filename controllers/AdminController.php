@@ -60,6 +60,7 @@ class AdminController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->view->params['pestanaUsuario'] = 1;
         return $this->render('index');
     }
 

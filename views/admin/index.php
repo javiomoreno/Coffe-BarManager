@@ -5,7 +5,7 @@
 $this->title = 'Inicio';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="site-index col-lg-12">
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>
