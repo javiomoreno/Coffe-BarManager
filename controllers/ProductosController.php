@@ -36,12 +36,9 @@ class ProductosController extends Controller
     public function actionIndex()
     {
         Yii::$app->view->params['pestanaUsuario'] = 2;
-        $searchModel = new ProductosSerach();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $model = Productos::find()->all();
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ]);
     }
 

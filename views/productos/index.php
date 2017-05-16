@@ -24,22 +24,46 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
     </div>
     <div class="ibox-content">
-      <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-          ['class' => 'yii\grid\SerialColumn'],
-
-          'id_producto',
-          'nombre',
-          'cantidad',
-          'precio_unitario',
-          'precio_costo',
-          // 'status',
-
-          ['class' => 'yii\grid\ActionColumn'],
-        ],
-      ]); ?>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover dataTables-example" >
+            <thead>
+              <tr>
+                <th>ID Producto</th>
+                <th>Nombre</th>
+                <th>Precio Unitario</th>
+                <th>Precio Costo</th>
+                <th>Cantidad</th>
+                <th>Status</th>
+                <th style="text-align: center;">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($model as $value): ?>
+                <tr class="odd gradeX">
+                    <td><?= $value->id_producto?></td>
+                    <td><?= $value->nombre;?></td>
+                    <td><?= $value->precio_unitario;?></td>
+                    <td><?= $value->precio_costo;?></td>
+                    <td><?= $value->cantidad;?></td>
+                    <td>
+                      <?php if($value->status == 1){
+                          echo "<span class='label label-primary'>Activo</span>";
+                        }else {
+                          echo "<span class='label label-warning'>Inactivo</span>";
+                        }
+                      ?>
+                    </td>
+                    <td style="text-align: center;">
+                      <div class="hidden-sm hidden-xs action-buttons">
+                        <?= Html::a(Html::tag('i', '', ['class' => 'fa fa-eye bigger-130', 'style' => 'cursor: pointer']).'', ['view', 'id' => $value->id_producto], ['class'=>'tooltip-blue blue', 'data-rel' => 'tooltip', 'data-placement' => 'top', 'title' => 'Ver Detalle de Producto'] );?>
+                        <?= Html::a(Html::tag('i', '', ['class' => 'fa fa-edit bigger-130', 'style' => 'cursor: pointer']).'', ['update', 'id' => $value->id_producto], ['class' => 'tooltip-green green', 'data-rel' => 'tooltip', 'data-placement' => 'top', 'title' => 'Editar Producto'] );?>
+                    </div>
+                    </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
     </div>
   </div>
 </div>

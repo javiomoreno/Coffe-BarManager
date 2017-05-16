@@ -49,11 +49,11 @@ AppThemeAsset::register($this);
                   <?php
                     if ($this->params['pestanaUsuario'] == 1) {
                       echo "<li class='active'>";
-                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).' Inicio', ['/admin/index'], ['class'=>'active'] );
+                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).Html::tag('span', 'Inicio', ['class' => 'nav-label']), ['/admin/index'], ['class'=>'active'] );
                     }
                     else{
                       echo "<li>";
-                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).' Inicio', ['/admin/index'], '' );
+                      echo Html::a(Html::tag('i', '', ['class' => 'fa fa-home fa-fw']).Html::tag('span', 'Inicio', ['class' => 'nav-label']), ['/admin/index'], '' );
                     }
                   ?>
                 </li>
@@ -119,6 +119,10 @@ AppThemeAsset::register($this);
                   <div class="col-lg-10">
                       <h2><?= $this->title ?></h2>
                       <?= Breadcrumbs::widget([
+                          'homeLink' => [
+                                'label' => Yii::t('yii', 'Home'),
+                                'url' => ['admin/index'],
+                           ],
                           'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                       ]) ?>
                   </div>

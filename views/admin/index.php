@@ -3,7 +3,6 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Inicio';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index col-lg-12">
 

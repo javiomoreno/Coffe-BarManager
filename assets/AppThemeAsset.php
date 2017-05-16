@@ -21,13 +21,15 @@ class AppThemeAsset extends AssetBundle
         'theme/css/bootstrap.min.css',
         'theme/font-awesome/css/font-awesome.css',
         'theme/css/animate.css',
-        'theme/css/style.css'
+        'theme/css/style.css',
+        'theme/css/plugins/dataTables/datatables.min.css',
     ];
     public $js = [
       'theme/js/jquery-2.2.1.min.js',
       'theme/js/bootstrap.min.js',
       'theme/js/plugins/metisMenu/jquery.metisMenu.js',
       'theme/js/plugins/slimscroll/jquery.slimscroll.min.js',
+      'theme/js/plugins/dataTables/datatables.min.js',
 
       'theme/js/plugins/flot/jquery.flot.js',
       'theme/js/plugins/flot/jquery.flot.tooltip.min.js',
@@ -53,6 +55,7 @@ class AppThemeAsset extends AssetBundle
       'theme/js/plugins/sparkline/jquery.sparkline.min.js',
 
       'js/modal.js',
+      'js/tabla.js',
 
     ];
     public $jsOptions = array(
